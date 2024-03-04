@@ -53,7 +53,7 @@ failedPaymentAlert(BuildContext context) {
                   },
                   style: ElevatedButton.styleFrom(
                     // ignore: deprecated_member_use
-                    primary: Color(0xffFF0094),
+                    backgroundColor: Color(0xffFF0094),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
                     ),

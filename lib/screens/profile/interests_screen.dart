@@ -3,13 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persing/core/colors.dart';
+import 'package:persing/providers/auth.dart';
+import 'package:persing/providers/sector.dart';
+import 'package:persing/providers/user.dart';
 import 'package:persing/screens/index/index_screen.dart';
 import 'package:persing/widgets/appbar.dart';
 import 'package:persing/widgets/filter_card.dart';
 import 'package:provider/provider.dart';
-import 'package:persing/providers/sector.dart';
-import 'package:persing/providers/auth.dart';
-import 'package:persing/providers/user.dart';
+
 import '../../constants.dart';
 
 class InterestsScreen extends StatefulWidget {
@@ -83,9 +84,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
           margin: EdgeInsets.only(right: 15, top: 8, bottom: 8, left: 0),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(9),
-              primary: tags[i]['selected'] ? primaryColor : Colors.white,
-              onPrimary: tags[i]['selected'] ? Colors.white : Colors.black,
+              foregroundColor: tags[i]['selected'] ? Colors.white : Colors.black, padding: EdgeInsets.all(9), backgroundColor: tags[i]['selected'] ? primaryColor : Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
@@ -177,8 +176,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0xFFFF0094),
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
                   ),

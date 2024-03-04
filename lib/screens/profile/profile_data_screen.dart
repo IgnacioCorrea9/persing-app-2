@@ -768,12 +768,10 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
+                          foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094), shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 20),
-                          primary: Color(0xFFFF0094),
-                          onPrimary: Colors.white,
                         ),
                         child: Text("Guardar",
                             style: TextStyle(
