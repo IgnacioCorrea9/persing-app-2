@@ -742,7 +742,6 @@ class _DiscoverScreenState extends State<DiscoverScreen>
 class _TabBarBottomElements extends StatelessWidget {
   /// Constructor
   const _TabBarBottomElements({
-    super.key,
     this.text = '',
     this.isSelected = false,
   });

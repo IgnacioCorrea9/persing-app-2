@@ -42,7 +42,7 @@ class Publicacion with ChangeNotifier {
     _token = await TokenStorage.get().gett();
     final userId = prefs.getString("userId");
     var response;
-    if (search == null || search == "") {
+    if (search == "") {
       response = await http.get(
           Uri.parse(Config.localTesting
               ? Config.postUrl + 'user/$userId'
@@ -73,7 +73,7 @@ class Publicacion with ChangeNotifier {
     _token = await TokenStorage.get().gett();
     final userId = prefs.getString("userId");
     var response;
-    if (search == null || search == "") {
+    if (search == "") {
       response = await http.get(
           Uri.parse(Config.localTesting
               ? Config.postUrl + 'destacadas/user/$userId'

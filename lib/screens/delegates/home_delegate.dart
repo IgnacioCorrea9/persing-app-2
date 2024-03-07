@@ -43,9 +43,7 @@ class Delegate extends SliverPersistentHeaderDelegate {
 }
 
 class _ScoreBar extends StatefulWidget {
-  const _ScoreBar({
-    super.key,
-  });
+  const _ScoreBar();
 
   @override
   State<_ScoreBar> createState() => _ScoreBarState();

@@ -41,7 +41,7 @@ dependencies:
   gradient_widgets: ^0.6.0
   email_validator: ^2.1.17
   flutter_rating_bar: ^4.0.1
-  webview_flutter: ^4.7.0
+  webview_flutter: ^3.0.4
   platform: ^3.1.0
 
   flutter:
@@ -87,7 +87,6 @@ flutter:
     - assets/images/splash/
     - assets/images/categorias/
     - assets/webview/
-    - .env
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -118,4 +117,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  #see https://flutter.dev/custom-fonts/#from-packages

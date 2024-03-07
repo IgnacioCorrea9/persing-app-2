@@ -319,19 +319,17 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["email"] = _emailController.text;
     }
 
-    if (_gender != null && _gender != "") {
+    if (_gender != "") {
       newData["genero"] = _gender;
     }
-    if (_estrato != null && _estrato != '-1') {
+    if (_estrato != '-1') {
       newData["estrato"] = _estrato;
     }
-    if (estadoCivil != null && estadoCivil != "") {
+    if (estadoCivil != "") {
       newData["estadoCivil"] = estadoCivil;
     }
-    if (_hasKids != null) {
-      newData["hijos"] = _hasKids;
-    }
-    if (_hasKids == false) {
+    newData["hijos"] = _hasKids;
+      if (_hasKids == false) {
       newData["cantidadHijos"] = 0;
     } else {
       newData["cantidadHijos"] = _kidsController.text;
@@ -340,16 +338,14 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["profesion"] = _jobController.text;
     }
 
-    if (_hasPets != null) {
-      newData["mascotas"] = _hasPets;
-    }
-
+    newData["mascotas"] = _hasPets;
+  
     if (_hasPets == false) {
       newData["cantidadMascotas"] = 0;
     } else {
       newData["cantidadMascotas"] = _havePetsController.text;
     }
-    if (_nivelEducativo != null && _nivelEducativo != "") {
+    if (_nivelEducativo != "") {
       newData["nivelEducativo"] = _nivelEducativo;
     }
 
@@ -364,9 +360,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
   }
 
   String numberValidator(String value) {
-    if (value == null) {
-      return "";
-    }
     final n = num.tryParse(value);
     if (n == null) {
       return '"$value" is not a valid number';
@@ -384,46 +377,20 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               profileDataModel = snapshot.data!;
-              if (profileDataModel != null) {
-                if (_gender == null || _gender == '') {
-                  _gender = profileDataModel?.data?.genero ?? '';
-                }
-                if (_estrato == null || _estrato == '') {
-                  _estrato = profileDataModel?.data?.estrato?.toString() ?? '';
-                }
-                if (estadoCivil == null || estadoCivil == '') {
-                  estadoCivil = profileDataModel?.data?.estadoCivil ?? '';
-                }
-                if (_nivelEducativo == null || _nivelEducativo == '') {
-                  _nivelEducativo =
-                      profileDataModel?.data?.nivelEducativo ?? '';
-                }
-
-                if (_hasKids == null) {
-                  _hasKids = profileDataModel.data.hijos;
-                  if (profileDataModel.data.hijos != null) {
-                    _kidsController.text =
-                        profileDataModel.data.cantidadHijos.toString();
-                  } else {
-                    _kidsController.clear();
-                  }
-                }
-
-                if (_hasPets == null) {
-                  _hasPets = profileDataModel.data.mascotas;
-                  if (profileDataModel.data.mascotas != null) {
-                    if (profileDataModel.data.mascotas) {
-                      _havePetsController.text =
-                          profileDataModel.data.cantidadMascotas.toString();
-                    } else {
-                      _havePetsController.clear();
-                    }
-                  } else {
-                    profileDataModel.data.mascotas = false;
-                  }
-                }
+              if (_gender == '') {
+                _gender = profileDataModel.data.genero ?? '';
               }
-              return Column(
+              if (_estrato == '') {
+                _estrato = profileDataModel.data.estrato.toString() ?? '';
+              }
+              if (estadoCivil == '') {
+                estadoCivil = profileDataModel.data.estadoCivil ?? '';
+              }
+              if (_nivelEducativo == '') {
+                _nivelEducativo =
+                    profileDataModel.data.nivelEducativo ?? '';
+              }
+                          return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildEarningsResume(

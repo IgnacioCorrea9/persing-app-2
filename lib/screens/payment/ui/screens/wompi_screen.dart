@@ -119,7 +119,7 @@ class _WompiScreenState extends State<WompiScreen> {
         child: SafeArea(
           child: Center(
             child: WebView(
-              javascriptMode: JavaScriptMode.unrestricted,
+              javascriptMode: JavascriptMode.unrestricted,
               gestureNavigationEnabled: true,
               onPageFinished: (response) async {
                 print(response);

@@ -33,7 +33,7 @@ class Auth with ChangeNotifier {
 
   /// Getter for is authenticated
   bool get isAuth {
-    return _token != null && _token.isNotEmpty;
+    return _token.isNotEmpty;
   }
 
   /// Token getter

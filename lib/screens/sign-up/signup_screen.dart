@@ -224,19 +224,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Future<bool> verifyGender(BuildContext ctx) async {
     try {
-      if (_gender == null) {
-        ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
-          content: Text(
-            "Por favor selecciona el género con el cuál te identificas",
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.red,
-        ));
-        return false;
-      } else {
-        return true;
-      }
-    } on FlutterError catch (error) {
+      return true;
+        } on FlutterError catch (error) {
       ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
         content: Text(
           error.message,
@@ -1182,7 +1171,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
 class _GradientBarProgress extends StatelessWidget {
   const _GradientBarProgress({
-    super.key,
     required this.size,
     required int activeStep,
     required this.pinkColor,
