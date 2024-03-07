@@ -68,8 +68,7 @@ class _WompiScreenState extends State<WompiScreen> {
     final wompiProvider = Provider.of<WompiProvider>(context);
 
     final paymentProvider = Provider.of<PaymentProvider>(context);
-
-    final Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
