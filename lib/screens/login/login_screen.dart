@@ -278,6 +278,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 )),
+                            stream: null,
                           ),
                           SizedBox(
                             height: 20.0,
