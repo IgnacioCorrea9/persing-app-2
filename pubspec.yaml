@@ -21,9 +21,9 @@ environment:
   sdk: ">=3.0.0 < 4.0.0"
 
 dependencies:
-  intl: ^0.18.0
+  intl: ^0.19.0
   flutter_svg: ^2.0.3
-  flutter_credit_card: ^3.0.6
+  flutter_credit_card: ^4.0.1
   credit_card_validator: ^2.0.1
   cached_network_image: ^3.2.3
   provider: ^6.0.5
@@ -37,11 +37,11 @@ dependencies:
   video_player: ^2.6.0
   url_launcher: ^6.1.10
   flutter_cache_manager: ^3.3.0
-  google_fonts: ^4.0.3
+  google_fonts: ^6.2.1
   gradient_widgets: ^0.6.0
   email_validator: ^2.1.17
   flutter_rating_bar: ^4.0.1
-  webview_flutter: ^3.0.4
+  webview_flutter: ^4.7.0
   platform: ^3.1.0
 
   flutter:
@@ -51,7 +51,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   get_it: ^7.6.0
-  uuid: ^3.0.7
+  uuid: ^4.3.3
   flutter_launcher_icons: ^0.13.1
   no_screenshot: ^0.0.1+6
 
