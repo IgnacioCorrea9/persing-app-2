@@ -33,7 +33,10 @@ class _DestacadosSeccionScreenState extends State<DestacadosSeccionScreen> {
 
   @override
   void initState() {
+<<<<<<< HEAD
     userId = "";
+=======
+>>>>>>> main
     getUserId();
     super.initState();
   }
@@ -72,7 +75,11 @@ class _DestacadosSeccionScreenState extends State<DestacadosSeccionScreen> {
                           return PublicationCard(
                             key: UniqueKey(),
                             link: '',
+<<<<<<< HEAD
                             imageUrl: post[i].foto ?? "",
+=======
+                            imageUrl: post[i].foto!,
+>>>>>>> main
                             sector: post[i].seccion.id,
                             isDestacado: true,
                             comentarios: post[i].comentarios,

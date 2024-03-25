@@ -3,16 +3,30 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+<<<<<<< HEAD
 import 'package:persing/core/future_listener.dart';
 import 'package:persing/providers/auth.dart';
 import 'package:persing/providers/recompensa.dart';
 import 'package:persing/screens/payment/data/wompi_status.dart';
+=======
+import 'package:persing/core/colors.dart';
+import 'package:persing/core/future_listener.dart';
+import 'package:persing/providers/auth.dart';
+import 'package:persing/providers/recompensa.dart';
+import 'package:persing/screens/index/index_screen.dart';
+import 'package:persing/screens/orders/provider/order_provider.dart';
+import 'package:persing/screens/payment/data/wompi_status.dart';
+import 'package:persing/screens/payment/models/payment_model.dart';
+import 'package:persing/screens/payment/provider/payment_provider.dart';
+import 'package:persing/screens/payment/provider/wompi_provider.dart';
+>>>>>>> main
 import 'package:persing/screens/payment/ui/widgets/failedpayment_alert.dart';
 import 'package:persing/screens/payment/ui/widgets/succesful_alert.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+<<<<<<< HEAD
 import 'package:persing/core/colors.dart';
 import 'package:persing/screens/index/index_screen.dart';
 import 'package:persing/screens/orders/provider/order_provider.dart';
@@ -20,6 +34,8 @@ import 'package:persing/screens/payment/models/payment_model.dart';
 import 'package:persing/screens/payment/provider/payment_provider.dart';
 import 'package:persing/screens/payment/provider/wompi_provider.dart';
 
+=======
+>>>>>>> main
 class WompiScreen extends StatefulWidget {
   final LocationData data;
   const WompiScreen({
@@ -69,8 +85,12 @@ class _WompiScreenState extends State<WompiScreen> {
     final wompiProvider = Provider.of<WompiProvider>(context);
 
     final paymentProvider = Provider.of<PaymentProvider>(context);
+<<<<<<< HEAD
 
     final Size size = MediaQuery.of(context).size;
+=======
+    Size size = MediaQuery.of(context).size;
+>>>>>>> main
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -124,13 +144,20 @@ class _WompiScreenState extends State<WompiScreen> {
               javascriptMode: JavascriptMode.unrestricted,
               gestureNavigationEnabled: true,
               onPageFinished: (response) async {
+<<<<<<< HEAD
                 // print(response);
+=======
+                print(response);
+>>>>>>> main
                 if (response.startsWith('https') &&
                     response.contains('transaction')) {
                   if (await paymentProvider.checkTransactionById(
                       await wompiProvider.getTransactionId(response))) {
                     wompiProvider.succeed = true;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
                     //obteniendo ids de productos
                   }
                 }

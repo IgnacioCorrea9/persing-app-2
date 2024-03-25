@@ -66,7 +66,11 @@ successfulAlert(
                           },
                       style: ElevatedButton.styleFrom(
                         // ignore: deprecated_member_use
+<<<<<<< HEAD
                         primary: Color(0xffFF0094),
+=======
+                        backgroundColor: Color(0xffFF0094),
+>>>>>>> main
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6.0),
                         ),

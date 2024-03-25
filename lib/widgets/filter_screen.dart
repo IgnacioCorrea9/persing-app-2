@@ -70,9 +70,13 @@ class _FilterScreenState extends State<FilterScreen> {
           margin: EdgeInsets.only(right: 15, top: 8, bottom: 8, left: 0),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
+<<<<<<< HEAD
               padding: EdgeInsets.all(9),
               primary: tags[i]["selected"] ? Colors.white : Colors.white,
               onPrimary: tags[i]["selected"] ? primaryColor : Colors.black,
+=======
+              foregroundColor: tags[i]["selected"] ? primaryColor : Colors.black, backgroundColor: tags[i]["selected"] ? Colors.white : Colors.white, padding: EdgeInsets.all(9),
+>>>>>>> main
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
@@ -183,8 +187,12 @@ class _FilterScreenState extends State<FilterScreen> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+<<<<<<< HEAD
                       primary: Color(0xFFFF0094),
                       onPrimary: Colors.white,
+=======
+                      foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094),
+>>>>>>> main
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),

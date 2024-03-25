@@ -22,7 +22,10 @@ class _HomeScreenState extends State<HomeScreen>
     with AutomaticKeepAliveClientMixin<HomeScreen> {
   @override
   void initState() {
+<<<<<<< HEAD
     userId = "";
+=======
+>>>>>>> main
     getPosts = _httpService.getPublicacionesByUser(
         Provider.of<Auth>(context, listen: false).userId);
     super.initState();
@@ -31,7 +34,11 @@ class _HomeScreenState extends State<HomeScreen>
   Repository _httpService = Repository();
   late String userId;
   bool isFilter = false;
+<<<<<<< HEAD
   List<String> active = [];
+=======
+  late List<String> active;
+>>>>>>> main
   @override
   bool get wantKeepAlive => true;
   // ignore: unused_element
@@ -51,6 +58,10 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+<<<<<<< HEAD
+=======
+    // ignore: unused_local_variable
+>>>>>>> main
     final postProvider = Provider.of<Publicacion>(context);
     super.build(context);
 

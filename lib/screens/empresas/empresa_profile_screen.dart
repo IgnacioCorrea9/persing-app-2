@@ -30,7 +30,10 @@ class _EmpresaProfileScreenState extends State<EmpresaProfileScreen> {
 
   @override
   void initState() {
+<<<<<<< HEAD
     userId = "";
+=======
+>>>>>>> main
     getUserId();
     super.initState();
   }

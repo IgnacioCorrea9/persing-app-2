@@ -149,7 +149,11 @@ class _PublicationCardState extends State<PublicationCard>
       );
       return;
     }
+<<<<<<< HEAD
     if (widget.usuarioId.isNotEmpty) {
+=======
+    if (widget.usuarioId != null) {
+>>>>>>> main
       await Navigator.push(
         context,
         MaterialPageRoute(
@@ -508,7 +512,11 @@ class _PublicationCardState extends State<PublicationCard>
   }
 
   void stopWatchTime(context, String sectorId) {
+<<<<<<< HEAD
     if (widget.videoUrl.isEmpty) {
+=======
+    if (widget.videoUrl == null) {
+>>>>>>> main
       isWatching = false;
       sw.stop();
       final elapsed =
@@ -542,8 +550,13 @@ class _PublicationCardState extends State<PublicationCard>
   _validateLikeAndSaves() async {
     final prefs = await SharedPreferences.getInstance();
     final userId = prefs.getString("userId");
+<<<<<<< HEAD
     if (widget.guardados.isNotEmpty) {
       if (widget.guardados.toString().contains(userId ?? "")) {
+=======
+    if (widget.guardados != null) {
+      if (widget.guardados.toString().contains(userId!)) {
+>>>>>>> main
         isSaved.value = true;
       } else {
         isSaved.value = false;
@@ -572,16 +585,27 @@ class _PublicationCardState extends State<PublicationCard>
         int visiblePercentage = (visibilityInfo.visibleFraction * 100).floor();
         if (visiblePercentage >= 80 &&
             !isWatching &&
+<<<<<<< HEAD
             widget.videoUrl.isEmpty &&
+=======
+            widget.videoUrl == null &&
+>>>>>>> main
             !widget.isDestacado) {
           startWatchTime();
           startTimeout();
         } else if (visiblePercentage <= 40 &&
             isWatching &&
+<<<<<<< HEAD
             widget.videoUrl.isEmpty &&
             !widget.isDestacado) {
           if (ignored == true && !widget.isDestacado ||
               widget.postId.isEmpty) {}
+=======
+            widget.videoUrl == null &&
+            !widget.isDestacado) {
+          if (ignored == true && !widget.isDestacado ||
+              widget.postId != null) {}
+>>>>>>> main
           stopWatchTime(context, widget.sector ?? '');
           stopTimeout();
         }
@@ -731,7 +755,11 @@ class _PublicationCardState extends State<PublicationCard>
                                     break;
                                   case 2:
                                     SocialShare.shareOptions(
+<<<<<<< HEAD
                                       "He encontrado este anuncio que puede interesarte: ${widget.videoUrl}",
+=======
+                                      "He encontrado este anuncio que puede interesarte: ${widget.videoUrl ?? widget.link}",
+>>>>>>> main
                                     ).then(
                                       (data) {},
                                     );
@@ -759,7 +787,11 @@ class _PublicationCardState extends State<PublicationCard>
                     ],
                   ),
                 ),
+<<<<<<< HEAD
                 widget.imageUrl.isNotEmpty
+=======
+                widget.imageUrl != null && widget.imageUrl.isNotEmpty
+>>>>>>> main
                     ? Flexible(
                         fit: FlexFit.loose,
                         child: CachedNetworkImage(

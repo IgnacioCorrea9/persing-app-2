@@ -45,10 +45,15 @@ class _SeeProductosScreenState extends State<SeeProductosScreen> {
 
   @override
   void initState() {
+<<<<<<< HEAD
     userId = "";
     sector = "";
     getUserId();
     super.initState();
+=======
+    super.initState();
+    getUserId();
+>>>>>>> main
   }
 
   @override
