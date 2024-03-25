@@ -31,10 +31,7 @@ class _PublicacionesBySectorState extends State<PublicacionesBySector> {
 
   @override
   void initState() {
-<<<<<<< HEAD
     userId = "";
-=======
->>>>>>> main
     getUserId();
     super.initState();
   }

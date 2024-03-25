@@ -48,15 +48,9 @@ class _VideoWidgetState extends State<VideoWidget> {
     // Create and store the VideoPlayerController. The VideoPlayerController
     // offers several different constructors to play videos from assets, files,
     // or the internet.
-<<<<<<< HEAD
     startTimer();
     if (videoUrl != null) {
       _controller = VideoPlayerController.networkUrl(Uri.parse(videoUrl!),
-=======
-
-    if (videoUrl != null) {
-      _controller = VideoPlayerController.contentUri(Uri.parse(videoUrl!),
->>>>>>> main
           videoPlayerOptions: VideoPlayerOptions(mixWithOthers: false));
       _initializeVideoPlayerFuture = _controller.initialize();
       _controller.addListener(() {
@@ -92,11 +86,7 @@ class _VideoWidgetState extends State<VideoWidget> {
 
   @override
   void dispose() {
-<<<<<<< HEAD
     _controller.dispose();
-=======
-    _controller?.dispose();
->>>>>>> main
     _timer.cancel();
 
     setVisibility(true);
@@ -198,21 +188,13 @@ class _VideoWidgetState extends State<VideoWidget> {
                     setState(() {
                       Wakelock.disable();
                       _controller.pause();
-<<<<<<< HEAD
                       pauseWatchTime();
-=======
-                      this.pauseWatchTime();
->>>>>>> main
                     });
                   } else {
                     setState(() {
                       Wakelock.enable();
                       _controller.play();
-<<<<<<< HEAD
                       startWatchTime();
-=======
-                      this.startWatchTime();
->>>>>>> main
                       startTimer();
                     });
                     // If the video is paused, play it.

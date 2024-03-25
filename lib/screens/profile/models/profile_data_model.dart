@@ -68,7 +68,6 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-<<<<<<< HEAD
         intereses: json["intereses"] != null
             ? List<String>.from(json["intereses"].map((x) => x))
             : [],
@@ -89,26 +88,6 @@ class Data {
         cantidadMascotas: json["cantidadMascotas"] ?? 0,
         estadoCivil: json["estadoCivil"] ?? "",
         v: json["__v"] ?? 0,
-=======
-        intereses: List<String>.from(json["intereses"].map((x) => x)),
-        id: json["_id"],
-        nombre: json["nombre"],
-        apellido: json["apellido"],
-        email: json["email"],
-        tipo: json["tipo"],
-        creditos: json["creditos"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        calificacionApp: json["calificacionApp"],
-        cantidadHijos: json["cantidadHijos"],
-        genero: json["genero"],
-        estrato: json["estrato"],
-        nivelEducativo: json["nivelEducativo"],
-        mascotas: json["mascotas"],
-        hijos: json["hijos"],
-        cantidadMascotas: json["cantidadMascotas"],
-        estadoCivil: json["estadoCivil"],
-        v: json["__v"],
->>>>>>> main
       );
 
   Map<String, dynamic> toJson() => {

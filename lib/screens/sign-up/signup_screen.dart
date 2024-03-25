@@ -224,7 +224,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Future<bool> verifyGender(BuildContext ctx) async {
     try {
-<<<<<<< HEAD
       if (_gender == null) {
         ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
           content: Text(
@@ -238,10 +237,6 @@ class _SignupScreenState extends State<SignupScreen> {
         return true;
       }
     } on FlutterError catch (error) {
-=======
-      return true;
-        } on FlutterError catch (error) {
->>>>>>> main
       ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(
         content: Text(
           error.message,
@@ -472,12 +467,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                         height: 50,
                                         child: ElevatedButton(
                                           style: ElevatedButton.styleFrom(
-<<<<<<< HEAD
                                             primary: Color(0xFFFF0094),
                                             onPrimary: Colors.white,
-=======
-                                            foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094),
->>>>>>> main
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5),
@@ -1192,10 +1183,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
 class _GradientBarProgress extends StatelessWidget {
   const _GradientBarProgress({
-<<<<<<< HEAD
     super.key,
-=======
->>>>>>> main
     required this.size,
     required int activeStep,
     required this.pinkColor,

@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:persing/core/colors.dart';
 import 'package:persing/screens/login/login_screen.dart';
-=======
-import 'package:google_fonts/google_fonts.dart';
-import 'package:persing/core/colors.dart';
-import 'package:persing/screens/splash_screen/onboarding_meet.dart';
->>>>>>> main
 import 'package:persing/widgets/appbar.dart';
 import 'package:persing/widgets/bottomNavigationBar.dart';
 
@@ -28,103 +22,15 @@ class OnBoardingBenefits extends StatelessWidget {
               textEnd: 'Saltar',
             ),
           ),
-<<<<<<< HEAD
           body: SizedBox(
               child:
                   Image.asset('assets/images/on-boarding/how_function_3.jpg')),
-=======
-          body: Container(
-            padding: EdgeInsets.all(16),
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset('assets/images/splash/onboarding-benefits.png',
-                      width: 260),
-                  SizedBox(height: 16),
-                  Text('¿Qué Beneficios Obtendrás?',
-                      style: GoogleFonts.nunito(
-                        textStyle: TextStyle(color: purpleColor, fontSize: 16),
-                      )),
-                  SizedBox(height: 16),
-                  RichText(
-                    text: TextSpan(
-                      style: TextStyle(height: 2),
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: 'Con Persing obtendrás ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: purpleColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: '2 beneficios ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: pinkColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: 'muy importantes: \n',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: purpleColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: '1. Tendrás ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: purpleColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: 'compensación económica ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: pinkColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: 'por el uso de tus datos personales.\n ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: purpleColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text: '2. ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: purpleColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text:
-                                'Tendrás control total sobre información tuya ',
-                            style: GoogleFonts.nunito(
-                              textStyle: TextStyle(
-                                  color: pinkColor, fontSize: textSize),
-                            )),
-                        TextSpan(
-                            text:
-                                'compartida. Sólo estarán disponibles los datos que pongas en tu perfil, podrás editarlos cuando quieras, y sabrás exactamente qué beneficios te han representado los mismos.',
-                            style: GoogleFonts.nunito(
-                              textStyle:
-                                  TextStyle(color: purpleColor, fontSize: 13),
-                            )),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              ),
-            ),
-          ),
->>>>>>> main
           bottomNavigationBar: WidgetBottomNavigationBar(
             textRight: 'Siguiente',
             textLeft: 'Anterior',
             onPressedLeft: () => Navigator.of(context).pop(),
             onPressed: () => Navigator.push(context,
-<<<<<<< HEAD
                 MaterialPageRoute(builder: (context) => LoginScreen())),
-=======
-                MaterialPageRoute(builder: (context) => OnBoardingMeetMore())),
->>>>>>> main
           )),
     );
   }

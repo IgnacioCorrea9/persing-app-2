@@ -3,10 +3,6 @@ import 'package:persing/core/colors.dart';
 import 'package:persing/screens/splash_screen/onboarding_star.dart';
 import 'package:persing/widgets/appbar.dart';
 import 'package:persing/widgets/bottomNavigationBar.dart';
-<<<<<<< HEAD
-=======
-import 'package:google_fonts/google_fonts.dart';
->>>>>>> main
 
 class OnBoardingSplash extends StatelessWidget {
   OnBoardingSplash({super.key});
@@ -26,98 +22,9 @@ class OnBoardingSplash extends StatelessWidget {
               textEnd: 'Saltar',
             ),
           ),
-<<<<<<< HEAD
           body: SizedBox(
               child: Image.asset(
                   'assets/images/on-boarding/what_is_persing_1.jpg')),
-=======
-          body: Container(
-            padding: EdgeInsets.all(18),
-            child: Column(
-              children: [
-                Image.asset('assets/images/splash/onboarding-splash.png',
-                    width: 260),
-                SizedBox(height: 16),
-                Text('¡Bienvenido!',
-                    style: GoogleFonts.nunito(
-                      textStyle: TextStyle(color: purpleColor, fontSize: 16),
-                    )),
-                SizedBox(height: 16),
-                RichText(
-                  text: TextSpan(
-                    style: TextStyle(wordSpacing: 2, height: 1.5),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: 'Bienvenid@ a',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: purpleColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' Persing',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: pinkColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ', ¡la primera aplicación donde',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: purpleColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' tú',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: pinkColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' eres quien',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: purpleColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' saca provecho',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: pinkColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' de tu',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: purpleColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' información personal',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: pinkColor, fontSize: textSize),
-                        ),
-                      ),
-                      TextSpan(
-                        text: '!',
-                        style: GoogleFonts.nunito(
-                          textStyle:
-                              TextStyle(color: purpleColor, fontSize: textSize),
-                        ),
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.justify,
-                )
-              ],
-            ),
-          ),
->>>>>>> main
           bottomNavigationBar: WidgetBottomNavigationBar(
             textRight: 'Siguiente',
             textLeft: '',

@@ -78,7 +78,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
 
   @override
   void initState() {
-<<<<<<< HEAD
     _hasKids = false;
     _hasPets = false;
     profileDataModel = ProfileDataModel(
@@ -101,8 +100,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
             cantidadMascotas: 0,
             estadoCivil: estadoCivil,
             v: 0));
-=======
->>>>>>> main
     super.initState();
   }
 
@@ -344,7 +341,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["email"] = _emailController.text;
     }
 
-<<<<<<< HEAD
     if (_gender != null && _gender != "") {
       newData["genero"] = _gender;
     }
@@ -358,19 +354,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["hijos"] = _hasKids;
     }
     if (_hasKids == false) {
-=======
-    if (_gender != "") {
-      newData["genero"] = _gender;
-    }
-    if (_estrato != '-1') {
-      newData["estrato"] = _estrato;
-    }
-    if (estadoCivil != "") {
-      newData["estadoCivil"] = estadoCivil;
-    }
-    newData["hijos"] = _hasKids;
-      if (_hasKids == false) {
->>>>>>> main
       newData["cantidadHijos"] = 0;
     } else {
       newData["cantidadHijos"] = _kidsController.text;
@@ -379,25 +362,16 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["profesion"] = _jobController.text;
     }
 
-<<<<<<< HEAD
     if (_hasPets != null) {
       newData["mascotas"] = _hasPets;
     }
 
-=======
-    newData["mascotas"] = _hasPets;
-  
->>>>>>> main
     if (_hasPets == false) {
       newData["cantidadMascotas"] = 0;
     } else {
       newData["cantidadMascotas"] = _havePetsController.text;
     }
-<<<<<<< HEAD
     if (_nivelEducativo != null && _nivelEducativo != "") {
-=======
-    if (_nivelEducativo != "") {
->>>>>>> main
       newData["nivelEducativo"] = _nivelEducativo;
     }
 
@@ -412,12 +386,9 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
   }
 
   String numberValidator(String value) {
-<<<<<<< HEAD
     if (value == null) {
       return "";
     }
-=======
->>>>>>> main
     final n = num.tryParse(value);
     if (n == null) {
       return '"$value" is not a valid number';
@@ -435,7 +406,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               profileDataModel = snapshot.data!;
-<<<<<<< HEAD
               if (profileDataModel != null) {
                 if (_gender == null || _gender == '') {
                   _gender = profileDataModel?.data?.genero ?? '';
@@ -476,22 +446,6 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                 }
               }
               return Column(
-=======
-              if (_gender == '') {
-                _gender = profileDataModel.data.genero ?? '';
-              }
-              if (_estrato == '') {
-                _estrato = profileDataModel.data.estrato.toString() ?? '';
-              }
-              if (estadoCivil == '') {
-                estadoCivil = profileDataModel.data.estadoCivil ?? '';
-              }
-              if (_nivelEducativo == '') {
-                _nivelEducativo =
-                    profileDataModel.data.nivelEducativo ?? '';
-              }
-                          return Column(
->>>>>>> main
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildEarningsResume(
@@ -836,19 +790,12 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-<<<<<<< HEAD
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 20),
                           primary: Color(0xFFFF0094),
                           onPrimary: Colors.white,
-=======
-                          foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094), shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 20),
->>>>>>> main
                         ),
                         child: Text("Guardar",
                             style: TextStyle(

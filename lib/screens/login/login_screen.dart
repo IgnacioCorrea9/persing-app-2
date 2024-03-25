@@ -1,14 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:flutter_credit_card/extension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persing/core/colors.dart';
 import 'package:persing/core/storage/token_storage.dart';
-=======
-import 'package:google_fonts/google_fonts.dart';
-import 'package:persing/core/colors.dart';
->>>>>>> main
 import 'package:persing/providers/auth.dart';
 import 'package:persing/screens/index/index_screen.dart';
 import 'package:persing/screens/login/forgot_password_screen.dart';
@@ -46,30 +41,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void activeLoader() async {
     final prefs = await SharedPreferences.getInstance();
-<<<<<<< HEAD
     TokenStorage.get().setSharedPrefrence(prefs);
     if (prefs.getString("token").isNotNullAndNotEmpty ||
         prefs.getString("userId").isNotNullAndNotEmpty) {
-=======
-    if (prefs.containsKey("token") || prefs.containsKey("userId")) {
->>>>>>> main
       await Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => IndexScreen()));
       setState(() {});
     } else {
-<<<<<<< HEAD
       showAlertDialog(context);
     }
   }
 
   showAlertDialog(BuildContext context) async {
-=======
-      await showAlertDialog(context);
-    }
-  }
-
-  showAlertDialog(BuildContext context) {
->>>>>>> main
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text(
@@ -91,11 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     // show the dialog
-<<<<<<< HEAD
     await showDialog(
-=======
-    showDialog(
->>>>>>> main
       context: context,
       builder: (BuildContext context) {
         return alert;
@@ -280,10 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           StreamBuilder<bool>(
-<<<<<<< HEAD
                             stream: null,
-=======
->>>>>>> main
                             builder: (context, snapshot) => ButtonTheme(
                                 minWidth: size.width,
                                 height: 50,
@@ -307,10 +283,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 )),
-<<<<<<< HEAD
-=======
-                            stream: null,
->>>>>>> main
                           ),
                           SizedBox(
                             height: 20.0,
