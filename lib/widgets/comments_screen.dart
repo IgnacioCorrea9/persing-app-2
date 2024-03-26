@@ -52,9 +52,10 @@ class _CommentScreenState extends State<CommentScreen> {
 
   @override
   void initState() {
-    super.initState();
+    seccion = false;
     comsProvider = Provider.of<Comentario>(context, listen: false);
     _comentarios = comsProvider.fetchComments(postId);
+    super.initState();
   }
 
   Future<void> _onRefresh() async {

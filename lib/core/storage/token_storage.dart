@@ -8,24 +8,30 @@ class TokenStorage {
     return getIt.get<TokenStorage>();
   }
 
-  late final SharedPreferences? _instance;
+  late SharedPreferences? _instance;
   static const _key = 'token';
 
-  //Future<SharedPreferences?> _get() {
-  //  return _instance;
-  //}
+  void setSharedPrefrence(SharedPreferences sharedPreferences) {
+    _instance = sharedPreferences;
+  }
 
-  SharedPreferences? _get() {
+  FutureOr<SharedPreferences?> _get() async {
     return _instance;
   }
 
+  void clearPrefs() {
+    _instance!.clear();
+  }
+
+  // SharedPreferences? _get() {
+  //   return _instance;
+  // }
+
   Future<bool> set(String token) async {
-    // return (await _get())!.setString(_key, token);
-    return (_get())!.setString(_key, token);
+    return (await _get())!.setString(_key, token);
   }
 
   Future<String> gett() async {
-    // return (await _get())!.getString(_key) ?? "";
-    return (_get())!.getString(_key) ?? "";
+    return (await _get())!.getString(_key) ?? "";
   }
 }

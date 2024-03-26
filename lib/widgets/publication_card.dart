@@ -149,7 +149,7 @@ class _PublicationCardState extends State<PublicationCard>
       );
       return;
     }
-    if (widget.usuarioId != null) {
+    if (widget.usuarioId.isNotEmpty) {
       await Navigator.push(
         context,
         MaterialPageRoute(
@@ -508,7 +508,7 @@ class _PublicationCardState extends State<PublicationCard>
   }
 
   void stopWatchTime(context, String sectorId) {
-    if (widget.videoUrl == null) {
+    if (widget.videoUrl.isEmpty) {
       isWatching = false;
       sw.stop();
       final elapsed =
@@ -542,8 +542,8 @@ class _PublicationCardState extends State<PublicationCard>
   _validateLikeAndSaves() async {
     final prefs = await SharedPreferences.getInstance();
     final userId = prefs.getString("userId");
-    if (widget.guardados != null) {
-      if (widget.guardados.toString().contains(userId!)) {
+    if (widget.guardados.isNotEmpty) {
+      if (widget.guardados.toString().contains(userId ?? "")) {
         isSaved.value = true;
       } else {
         isSaved.value = false;
@@ -572,16 +572,16 @@ class _PublicationCardState extends State<PublicationCard>
         int visiblePercentage = (visibilityInfo.visibleFraction * 100).floor();
         if (visiblePercentage >= 80 &&
             !isWatching &&
-            widget.videoUrl == null &&
+            widget.videoUrl.isEmpty &&
             !widget.isDestacado) {
           startWatchTime();
           startTimeout();
         } else if (visiblePercentage <= 40 &&
             isWatching &&
-            widget.videoUrl == null &&
+            widget.videoUrl.isEmpty &&
             !widget.isDestacado) {
           if (ignored == true && !widget.isDestacado ||
-              widget.postId != null) {}
+              widget.postId.isEmpty) {}
           stopWatchTime(context, widget.sector ?? '');
           stopTimeout();
         }
@@ -731,7 +731,7 @@ class _PublicationCardState extends State<PublicationCard>
                                     break;
                                   case 2:
                                     SocialShare.shareOptions(
-                                      "He encontrado este anuncio que puede interesarte: ${widget.videoUrl ?? widget.link}",
+                                      "He encontrado este anuncio que puede interesarte: ${widget.videoUrl}",
                                     ).then(
                                       (data) {},
                                     );
@@ -759,7 +759,7 @@ class _PublicationCardState extends State<PublicationCard>
                     ],
                   ),
                 ),
-                widget.imageUrl != null && widget.imageUrl.isNotEmpty
+                widget.imageUrl.isNotEmpty
                     ? Flexible(
                         fit: FlexFit.loose,
                         child: CachedNetworkImage(

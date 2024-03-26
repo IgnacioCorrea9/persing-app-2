@@ -78,7 +78,7 @@ class LayoutBuilderTextSizeDown extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         bool keepTrying = true;
 
-        double fontSize =  style.fontSize!;
+        double fontSize =  style.fontSize ?? 14;
 
         while (keepTrying) {
           final span = TextSpan(

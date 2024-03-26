@@ -3,21 +3,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:persing/core/colors.dart';
 import 'package:persing/core/future_listener.dart';
 import 'package:persing/providers/auth.dart';
 import 'package:persing/providers/recompensa.dart';
-import 'package:persing/screens/index/index_screen.dart';
-import 'package:persing/screens/orders/provider/order_provider.dart';
 import 'package:persing/screens/payment/data/wompi_status.dart';
-import 'package:persing/screens/payment/models/payment_model.dart';
-import 'package:persing/screens/payment/provider/payment_provider.dart';
-import 'package:persing/screens/payment/provider/wompi_provider.dart';
 import 'package:persing/screens/payment/ui/widgets/failedpayment_alert.dart';
 import 'package:persing/screens/payment/ui/widgets/succesful_alert.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import 'package:persing/core/colors.dart';
+import 'package:persing/screens/index/index_screen.dart';
+import 'package:persing/screens/orders/provider/order_provider.dart';
+import 'package:persing/screens/payment/models/payment_model.dart';
+import 'package:persing/screens/payment/provider/payment_provider.dart';
+import 'package:persing/screens/payment/provider/wompi_provider.dart';
 
 class WompiScreen extends StatefulWidget {
   final LocationData data;
@@ -68,7 +69,8 @@ class _WompiScreenState extends State<WompiScreen> {
     final wompiProvider = Provider.of<WompiProvider>(context);
 
     final paymentProvider = Provider.of<PaymentProvider>(context);
-    Size size = MediaQuery.of(context).size;
+
+    final Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -122,7 +124,7 @@ class _WompiScreenState extends State<WompiScreen> {
               javascriptMode: JavascriptMode.unrestricted,
               gestureNavigationEnabled: true,
               onPageFinished: (response) async {
-                print(response);
+                // print(response);
                 if (response.startsWith('https') &&
                     response.contains('transaction')) {
                   if (await paymentProvider.checkTransactionById(

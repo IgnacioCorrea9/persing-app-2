@@ -45,8 +45,9 @@ class _ProductCardState extends State<ProductCard> {
 
   @override
   void initState() {
-    super.initState();
+    userId = "";
     getUserId();
+    super.initState();
   }
 
   @override

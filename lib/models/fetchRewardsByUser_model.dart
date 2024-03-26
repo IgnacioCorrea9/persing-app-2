@@ -83,11 +83,14 @@ class Sector {
   DateTime createdAt;
 
   factory Sector.fromJson(Map<String, dynamic> json) => Sector(
-        descripcion: List<String>.from(json["descripcion"].map((x) => x)),
-        icono: json["icono"],
+        descripcion: json["descripcion"] != null
+            ? List<String>.from(
+                json["descripcion"].map((x) => x != null ? x : ""))
+            : [],
+        icono: json["icono"] ?? "",
         id: json["_id"],
         nombre: json["nombre"],
-        v: json["__v"],
+        v: json["__v"] ?? 0,
         createdAt: DateTime.parse(json["createdAt"]),
       );
 
@@ -141,14 +144,14 @@ class Usuario {
         apellido: json["apellido"],
         email: json["email"],
         password: json["password"],
-        tipo: json["tipo"],
-        creditos: json["creditos"],
+        tipo: json["tipo"] ?? "",
+        creditos: json["creditos"] ?? 0,
         createdAt: DateTime.parse(json["createdAt"]),
-        genero: json["genero"],
-        estrato: json["estrato"],
-        nivelEducativo: json["nivelEducativo"],
-        profesion: json["profesion"],
-        v: json["__v"],
+        genero: json["genero"] ?? "",
+        estrato: json["estrato"] ?? 0,
+        nivelEducativo: json["nivelEducativo"] ?? "",
+        profesion: json["profesion"] ?? "",
+        v: json["__v"] ?? 0,
       );
 
   Map<String, dynamic> toJson() => {

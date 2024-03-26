@@ -18,12 +18,12 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+2
 
 environment:
-  sdk: ">=3.0.0 < 4.0.0"
+  sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
-  intl: ^0.19.0
+  intl: ^0.18.0
   flutter_svg: ^2.0.3
-  flutter_credit_card: ^4.0.1
+  flutter_credit_card: ^3.0.6
   credit_card_validator: ^2.0.1
   cached_network_image: ^3.2.3
   provider: ^6.0.5
@@ -34,10 +34,10 @@ dependencies:
   social_share: ^2.2.1
   font_awesome_flutter: ^10.4.0
   visibility_detector: ^0.4.0+2
-  video_player: ^2.6.0
+  video_player: ^2.7.2
   url_launcher: ^6.1.10
   flutter_cache_manager: ^3.3.0
-  google_fonts: ^6.2.1
+  google_fonts: ^4.0.3
   gradient_widgets: ^0.6.0
   email_validator: ^2.1.17
   flutter_rating_bar: ^4.0.1
@@ -51,7 +51,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   get_it: ^7.6.0
-  uuid: ^4.3.3
+  uuid: ^3.0.7
   flutter_launcher_icons: ^0.13.1
   no_screenshot: ^0.0.1+6
 
@@ -87,6 +87,7 @@ flutter:
     - assets/images/splash/
     - assets/images/categorias/
     - assets/webview/
+    - .env
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -117,4 +118,4 @@ flutter:
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,
-  #see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/custom-fonts/#from-packages

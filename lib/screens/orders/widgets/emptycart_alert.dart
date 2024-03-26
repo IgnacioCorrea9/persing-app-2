@@ -46,11 +46,12 @@ emptyCartDialog(BuildContext context, KnowMoreDiscountsModelData product) {
                             TextButton(
                               onPressed: () => Navigator.of(context).pop(),
                               style: TextButton.styleFrom(
-                                foregroundColor: Colors.white, shape: RoundedRectangleBorder(
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(6.0),
                                 ),
                                 padding: EdgeInsets.only(
                                     top: 10, bottom: 9, left: 18, right: 19),
+                                primary: Colors.white,
                               ),
                               child: Text(
                                 "Cancelar",
@@ -73,7 +74,7 @@ emptyCartDialog(BuildContext context, KnowMoreDiscountsModelData product) {
                                             OrderCartScreen()));
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xffFF0094),
+                                primary: Color(0xffFF0094),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(6.0),
                                 ),

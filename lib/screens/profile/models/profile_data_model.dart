@@ -68,24 +68,26 @@ class Data {
   });
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-        intereses: List<String>.from(json["intereses"].map((x) => x)),
+        intereses: json["intereses"] != null
+            ? List<String>.from(json["intereses"].map((x) => x))
+            : [],
         id: json["_id"],
-        nombre: json["nombre"],
-        apellido: json["apellido"],
+        nombre: json["nombre"] ?? "",
+        apellido: json["apellido"] ?? "",
         email: json["email"],
-        tipo: json["tipo"],
-        creditos: json["creditos"],
+        tipo: json["tipo"] ?? "",
+        creditos: json["creditos"] ?? 0,
         createdAt: DateTime.parse(json["createdAt"]),
-        calificacionApp: json["calificacionApp"],
-        cantidadHijos: json["cantidadHijos"],
-        genero: json["genero"],
-        estrato: json["estrato"],
-        nivelEducativo: json["nivelEducativo"],
-        mascotas: json["mascotas"],
-        hijos: json["hijos"],
-        cantidadMascotas: json["cantidadMascotas"],
-        estadoCivil: json["estadoCivil"],
-        v: json["__v"],
+        calificacionApp: json["calificacionApp"] ?? 0,
+        cantidadHijos: json["cantidadHijos"] ?? 0,
+        genero: json["genero"] ?? "",
+        estrato: json["estrato"] ?? 0,
+        nivelEducativo: json["nivelEducativo"] ?? "",
+        mascotas: json["mascotas"] ?? false,
+        hijos: json["hijos"] ?? false,
+        cantidadMascotas: json["cantidadMascotas"] ?? 0,
+        estadoCivil: json["estadoCivil"] ?? "",
+        v: json["__v"] ?? 0,
       );
 
   Map<String, dynamic> toJson() => {

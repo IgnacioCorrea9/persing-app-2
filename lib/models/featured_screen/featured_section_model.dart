@@ -69,11 +69,11 @@ class FeaturedSectionModelData {
         titulo: json["titulo"],
         seccion: Seccion.fromJson(json["seccion"]),
         texto: json["texto"],
-        foto: json["foto"] == null ? null : json["foto"],
+        foto: json["foto"] == null ? "" : json["foto"],
         createdAt: DateTime.parse(json["createdAt"]),
         v: json["__v"],
         liked: json["liked"],
-        video: json["video"] == null ? null : json["video"],
+        video: json["video"] == null ? "" : json["video"],
       );
 
   Map<String, dynamic> toJson() => {

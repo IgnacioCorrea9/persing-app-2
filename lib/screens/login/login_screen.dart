@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_credit_card/extension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persing/core/colors.dart';
+import 'package:persing/core/storage/token_storage.dart';
 import 'package:persing/providers/auth.dart';
 import 'package:persing/screens/index/index_screen.dart';
 import 'package:persing/screens/login/forgot_password_screen.dart';
@@ -39,16 +41,18 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void activeLoader() async {
     final prefs = await SharedPreferences.getInstance();
-    if (prefs.containsKey("token") || prefs.containsKey("userId")) {
+    TokenStorage.get().setSharedPrefrence(prefs);
+    if (prefs.getString("token").isNotNullAndNotEmpty ||
+        prefs.getString("userId").isNotNullAndNotEmpty) {
       await Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => IndexScreen()));
       setState(() {});
     } else {
-      await showAlertDialog(context);
+      showAlertDialog(context);
     }
   }
 
-  showAlertDialog(BuildContext context) {
+  showAlertDialog(BuildContext context) async {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text(
@@ -70,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     // show the dialog
-    showDialog(
+    await showDialog(
       context: context,
       builder: (BuildContext context) {
         return alert;
@@ -255,6 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           StreamBuilder<bool>(
+                            stream: null,
                             builder: (context, snapshot) => ButtonTheme(
                                 minWidth: size.width,
                                 height: 50,
@@ -278,7 +283,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                         fontWeight: FontWeight.bold),
                                   ),
                                 )),
-                            stream: null,
                           ),
                           SizedBox(
                             height: 20.0,

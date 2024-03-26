@@ -73,22 +73,22 @@ class PublicacionesBySectorData {
   factory PublicacionesBySectorData.fromJson(Map<String, dynamic> json) =>
       PublicacionesBySectorData(
         likes: json["likes"],
-        guardados: List<String>.from(json["guardados"].map((x) => x)),
+        guardados: json["guardados"] != null ? List<String>.from(json["guardados"].map((x) => x != null ? x : "")) : [],
         comentarios: json["comentarios"],
         alcanzados: json["alcanzados"],
         destacada: json["destacada"],
         id: json["_id"],
         titulo: json["titulo"],
-        link: json["link"] == null ? null : json["link"],
+        link: json["link"] == null ? "" : json["link"],
         texto: json["texto"],
         sector: Sector.fromJson(json["sector"]),
         empresa: Empresa.fromJson(json["empresa"]),
-        video: json["video"] == null ? null : json["video"],
+        video: json["video"] == null ? "" : json["video"],
         createdAt: DateTime.parse(json["createdAt"]),
         v: json["__v"],
         liked: json["liked"],
         saved: json["saved"],
-        foto: json["foto"] == null ? null : json["foto"],
+        foto: json["foto"] == null ? "" : json["foto"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -138,7 +138,7 @@ class Empresa {
   bool aprobado;
 
   factory Empresa.fromJson(Map<String, dynamic> json) => Empresa(
-        sectores: List<String>.from(json["sectores"].map((x) => x)),
+        sectores:json["sectores"] != null ? List<String>.from(json["sectores"].map((x) => x != null ? x : "")): [],
         estado: json["estado"],
         id: json["_id"],
         nombre: json["nombre"],
@@ -146,8 +146,8 @@ class Empresa {
         logo: json["logo"],
         createdAt: DateTime.parse(json["createdAt"]),
         v: json["__v"],
-        nit: json["nit"] == null ? null : json["nit"],
-        aprobado: json["aprobado"] == null ? null : json["aprobado"],
+        nit: json["nit"] == null ? "" : json["nit"],
+        aprobado: json["aprobado"] == null ? false : json["aprobado"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -184,10 +184,10 @@ class Sector {
 
   factory Sector.fromJson(Map<String, dynamic> json) => Sector(
         descripcion: List<String>.from(json["descripcion"].map((x) => x)),
-        icono: json["icono"],
-        id: json["_id"],
-        nombre: json["nombre"],
-        v: json["__v"],
+        icono: json["icono"] ?? "",
+        id: json["_id"] ?? "",
+        nombre: json["nombre"] ?? "",
+        v: json["__v"] ?? 0,
         createdAt: DateTime.parse(json["createdAt"]),
       );
 

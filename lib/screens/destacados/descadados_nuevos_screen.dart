@@ -27,6 +27,7 @@ class _DestacadosNuevosScreenState extends State<DestacadosNuevosScreen> {
 
   @override
   void initState() {
+    userId = "";
     getUserId();
     super.initState();
   }

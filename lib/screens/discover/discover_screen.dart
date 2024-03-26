@@ -173,6 +173,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
 
   @override
   void initState() {
+    userId = "";
     _tabController = TabController(vsync: this, length: myTabs.length);
     getUser();
     super.initState();
@@ -632,7 +633,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
       leading: null,
       centerTitle: false,
       automaticallyImplyLeading: false,
-      toolbarHeight: 105,
+      toolbarHeight: 150,
       title: Center(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -742,6 +743,7 @@ class _DiscoverScreenState extends State<DiscoverScreen>
 class _TabBarBottomElements extends StatelessWidget {
   /// Constructor
   const _TabBarBottomElements({
+    super.key,
     this.text = '',
     this.isSelected = false,
   });

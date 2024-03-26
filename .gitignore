@@ -20,6 +20,7 @@
 .pub/
 *.env
 /build/
+.fvm/flutter_sdk
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -78,9 +79,3 @@ Thumbs.db
 key.properties
 
 persingKeyStore.jks
-
-# Ignore Gradle project-specific cache directory
-.gradle
-
-# Ignore Gradle build output directory
-build

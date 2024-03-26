@@ -70,24 +70,29 @@ class HomePublicacionesData {
 
   factory HomePublicacionesData.fromJson(Map<String, dynamic> json) =>
       HomePublicacionesData(
-        firstSaved: json["firstSaved"],
-        likes: json["likes"],
-        guardados: List<String>.from(json["guardados"].map((x) => x)),
-        comentarios: json["comentarios"],
-        alcanzados: json["alcanzados"],
-        destacada: json["destacada"],
+        firstSaved: json["firstSaved"] ?? false,
+        likes: json["likes"] ?? 0,
+        guardados: json["guardados"] != null
+            ? List<String>.from(
+                json["guardados"].map((x) => x != null ? x : ""))
+            : [],
+        comentarios: json["comentarios"] ?? 0,
+        alcanzados: json["alcanzados"] ?? 0,
+        destacada: json["destacada"] ?? false,
         id: json["_id"],
         empresa: Empresa.fromJson(json["empresa"]),
         sector: Sector.fromJson(json["sector"]),
-        titulo: json["titulo"],
-        texto: json["texto"],
-        foto: json["foto"] == null ? null : json["foto"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        v: json["__v"],
-        liked: json["liked"],
-        saved: json["saved"],
-        video: json["video"] == null ? null : json["video"], //
-        link: json["link"] == null ? null : json["link"],
+        titulo: json["titulo"] ?? "",
+        texto: json["texto"] ?? "",
+        foto: json["foto"] == null ? "" : json["foto"],
+        createdAt: json["createdAt"] != null
+            ? DateTime.parse(json["createdAt"])
+            : DateTime.now(),
+        v: json["__v"] ?? 0,
+        liked: json["liked"] ?? false,
+        saved: json["saved"] ?? false,
+        video: json["video"] == null ? "" : json["video"], //
+        link: json["link"] == null ? "" : json["link"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -126,8 +131,8 @@ class Empresa {
     required this.createdAt,
   });
 
-  List<Id> sectores;
-  Estado estado;
+  List<String> sectores;
+  String estado;
   String id;
   String nombre;
   String nit;
@@ -138,21 +143,24 @@ class Empresa {
   DateTime createdAt;
 
   factory Empresa.fromJson(Map<String, dynamic> json) => Empresa(
-        sectores: List<Id>.from(json["sectores"].map((x) => idValues.map[x])),
-        estado: estadoValues.map[json["estado"]] ?? Estado.APROBADO,
-        id: json["_id"],
-        nombre: json["nombre"],
-        nit: json["nit"] == null ? null : json["nit"],
-        logo: json["logo"],
-        descripcion: json["descripcion"],
-        v: json["__v"],
-        aprobado: json["aprobado"] == null ? null : json["aprobado"],
-        createdAt: DateTime.parse(json["createdAt"]),
+        sectores: json["sectores"] != null
+            ? List<String>.from(json["sectores"].map((x) => x != null ? x : ""))
+            : [],
+        estado: json["estado"] ?? "",
+        id: json["_id"] ?? "",
+        nombre: json["nombre"] ?? "",
+        nit: json["nit"] == null ? "" : json["nit"],
+        logo: json["logo"] ?? "",
+        descripcion: json["descripcion"] ?? "",
+        v: json["__v"] ?? 0,
+        aprobado: json["aprobado"] == null ? false : json["aprobado"],
+        createdAt: json["createdAt"] != null
+            ? DateTime.parse(json["createdAt"])
+            : DateTime.now(),
       );
 
   Map<String, dynamic> toJson() => {
-        "sectores":
-            List<dynamic>.from(sectores.map((x) => idValues.reverse[x])),
+        "sectores": List<dynamic>.from(sectores.map((x) => x)),
         "estado": estadoValues.reverse[estado],
         "_id": id,
         "nombre": nombre,
@@ -193,26 +201,26 @@ class Sector {
     required this.createdAt,
   });
 
-  List<Descripcion> descripcion;
+  List<String> descripcion;
   String icono;
   String id;
-  Nombre nombre;
+  String nombre;
   int v;
   DateTime createdAt;
 
   factory Sector.fromJson(Map<String, dynamic> json) => Sector(
-        descripcion: List<Descripcion>.from(
-            json["descripcion"].map((x) => descripcionValues.map[x])),
-        icono: json["icono"],
-        id: json["_id"],
-        nombre: nombreValues.map[json["nombre"]] ?? Nombre.CUIDADO_PERSONAL,
-        v: json["__v"],
-        createdAt: DateTime.parse(json["createdAt"]),
+        descripcion: List<String>.from(json["descripcion"].map((x) => x)),
+        icono: json["icono"] ?? "",
+        id: json["_id"] ?? "",
+        nombre: json["nombre"] ?? "",
+        v: json["__v"] ?? 0,
+        createdAt: json["createdAt"] != null
+            ? DateTime.parse(json["createdAt"])
+            : DateTime.now(),
       );
 
   Map<String, dynamic> toJson() => {
-        "descripcion": List<dynamic>.from(
-            descripcion.map((x) => descripcionValues.reverse[x])),
+        "descripcion": List<dynamic>.from(descripcion.map((x) => x)),
         "icono": icono,
         "_id": idValues.reverse[id],
         "nombre": nombreValues.reverse[nombre],
@@ -250,6 +258,9 @@ class EnumValues<T> {
   EnumValues(this.map);
 
   Map<T, String> get reverse {
+    if (reverseMap == null) {
+      reverseMap = map.map((k, v) => new MapEntry(v, k));
+    }
     return reverseMap;
   }
 }

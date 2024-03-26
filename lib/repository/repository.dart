@@ -20,6 +20,11 @@ import 'package:persing/models/sector_model.dart';
 
 class Repository with ChangeNotifier {
   late String _token;
+  late String userId;
+
+  Repository()
+      : _token = '',
+        userId = '';
 
   Map<String, String> get headers =>
       {"Authorization": _token, 'Content-Type': 'application/json'};
@@ -44,7 +49,6 @@ class Repository with ChangeNotifier {
       'https://develop-persing.imagineapps.co/api/recompensa/user/';
   final String _urlEmpresaById =
       'https://develop-persing.imagineapps.co/api/publicacion/empresa/';
-  late String userId;
 
   Future<List<DataEnterprises>> getEmpresas() async {
     _token = await TokenStorage.get().gett();

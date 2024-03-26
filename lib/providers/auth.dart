@@ -22,8 +22,19 @@ class Auth with ChangeNotifier {
   late String _userId;
   late String error;
 
-  /// Local url
+  void updateUserInfo(String userId, String token) {
+    _userId = userId;
+    _token = token;
+    notifyListeners();
+  }
 
+  void clearUserInfo() {
+    _userId = "";
+    _token = "";
+    notifyListeners();
+  }
+
+  /// Local url
   final _localURL = 'https://develop-persing.imagineapps.co/users';
 
   /// Headers
@@ -95,8 +106,7 @@ class Auth with ChangeNotifier {
         throw FlutterError("No pueden iniciar sesión en esta app");
       } else {
         prefs.setString("token", decoded["token"]);
-        _token = decoded["token"];
-        _userId = decoded["user"]["_id"];
+        updateUserInfo(decoded["token"], decoded["user"]["_id"]);
         prefs.setString("token", _token);
         prefs.setString("userId", _userId);
         prefs.setString("interests", jsonEncode(decoded["user"]["intereses"]));
@@ -108,7 +118,8 @@ class Auth with ChangeNotifier {
 
   Future<List<String>> getActiveInterests() async {
     final prefs = await SharedPreferences.getInstance();
-    final extracted = jsonDecode(prefs.getString("interests")!) as List<dynamic>;
+    final extracted =
+        jsonDecode(prefs.getString("interests")!) as List<dynamic>;
     List<String> list = <String>[];
     extracted.forEach((element) {
       list.add(element.toString());
@@ -132,17 +143,19 @@ class Auth with ChangeNotifier {
     if (!prefs.containsKey("token") || !prefs.containsKey("userId")) {
       return false;
     }
-    _token = await TokenStorage.get().gett();
-    _userId = prefs.getString("userId")!;
+
+    TokenStorage.get().setSharedPrefrence(prefs);
+
+    updateUserInfo(await TokenStorage.get().gett(), prefs.getString("userId")!);
     notifyListeners();
     return true;
   }
 
   /// Logs out of the app and clears storage
   void logOut() async {
-    _token = '';
-    _userId = '';
+    clearUserInfo();
     final prefs = await SharedPreferences.getInstance();
+    TokenStorage.get().clearPrefs();
     prefs.clear();
     notifyListeners();
   }

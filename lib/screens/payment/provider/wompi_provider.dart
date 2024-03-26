@@ -68,6 +68,6 @@ class WompiProvider with ChangeNotifier {
             mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
         .toString();
 
-    webController.loadRequest(Uri.parse(url) as WebViewRequest);
+    webController.loadUrl(url);
   }
 }

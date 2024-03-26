@@ -78,6 +78,28 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
 
   @override
   void initState() {
+    _hasKids = false;
+    _hasPets = false;
+    profileDataModel = ProfileDataModel(
+        data: Data(
+            intereses: [],
+            id: "",
+            nombre: "",
+            apellido: "",
+            email: "",
+            tipo: "",
+            creditos: 0,
+            createdAt: DateTime.now(),
+            calificacionApp: 0,
+            cantidadHijos: 0,
+            genero: "",
+            estrato: 2,
+            nivelEducativo: "",
+            mascotas: false,
+            hijos: false,
+            cantidadMascotas: 0,
+            estadoCivil: estadoCivil,
+            v: 0));
     super.initState();
   }
 
@@ -319,17 +341,19 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["email"] = _emailController.text;
     }
 
-    if (_gender != "") {
+    if (_gender != null && _gender != "") {
       newData["genero"] = _gender;
     }
-    if (_estrato != '-1') {
+    if (_estrato != null && _estrato != '-1') {
       newData["estrato"] = _estrato;
     }
-    if (estadoCivil != "") {
+    if (estadoCivil != null && estadoCivil != "") {
       newData["estadoCivil"] = estadoCivil;
     }
-    newData["hijos"] = _hasKids;
-      if (_hasKids == false) {
+    if (_hasKids != null) {
+      newData["hijos"] = _hasKids;
+    }
+    if (_hasKids == false) {
       newData["cantidadHijos"] = 0;
     } else {
       newData["cantidadHijos"] = _kidsController.text;
@@ -338,14 +362,16 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
       newData["profesion"] = _jobController.text;
     }
 
-    newData["mascotas"] = _hasPets;
-  
+    if (_hasPets != null) {
+      newData["mascotas"] = _hasPets;
+    }
+
     if (_hasPets == false) {
       newData["cantidadMascotas"] = 0;
     } else {
       newData["cantidadMascotas"] = _havePetsController.text;
     }
-    if (_nivelEducativo != "") {
+    if (_nivelEducativo != null && _nivelEducativo != "") {
       newData["nivelEducativo"] = _nivelEducativo;
     }
 
@@ -360,6 +386,9 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
   }
 
   String numberValidator(String value) {
+    if (value == null) {
+      return "";
+    }
     final n = num.tryParse(value);
     if (n == null) {
       return '"$value" is not a valid number';
@@ -377,20 +406,46 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               profileDataModel = snapshot.data!;
-              if (_gender == '') {
-                _gender = profileDataModel.data.genero ?? '';
+              if (profileDataModel != null) {
+                if (_gender == null || _gender == '') {
+                  _gender = profileDataModel?.data?.genero ?? '';
+                }
+                if (_estrato == null || _estrato == '') {
+                  _estrato = profileDataModel?.data?.estrato?.toString() ?? '';
+                }
+                if (estadoCivil == null || estadoCivil == '') {
+                  estadoCivil = profileDataModel?.data?.estadoCivil ?? '';
+                }
+                if (_nivelEducativo == null || _nivelEducativo == '') {
+                  _nivelEducativo =
+                      profileDataModel?.data?.nivelEducativo ?? '';
+                }
+
+                if (_hasKids == null) {
+                  _hasKids = profileDataModel.data.hijos;
+                  if (profileDataModel.data.hijos != null) {
+                    _kidsController.text =
+                        profileDataModel.data.cantidadHijos.toString();
+                  } else {
+                    _kidsController.clear();
+                  }
+                }
+
+                if (_hasPets == null) {
+                  _hasPets = profileDataModel.data.mascotas;
+                  if (profileDataModel.data.mascotas != null) {
+                    if (profileDataModel.data.mascotas) {
+                      _havePetsController.text =
+                          profileDataModel.data.cantidadMascotas.toString();
+                    } else {
+                      _havePetsController.clear();
+                    }
+                  } else {
+                    profileDataModel.data.mascotas = false;
+                  }
+                }
               }
-              if (_estrato == '') {
-                _estrato = profileDataModel.data.estrato.toString() ?? '';
-              }
-              if (estadoCivil == '') {
-                estadoCivil = profileDataModel.data.estadoCivil ?? '';
-              }
-              if (_nivelEducativo == '') {
-                _nivelEducativo =
-                    profileDataModel.data.nivelEducativo ?? '';
-              }
-                          return Column(
+              return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildEarningsResume(
@@ -735,10 +790,12 @@ class _ProfileDataScreenState extends State<ProfileDataScreen> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Color(0xFFFF0094), shape: RoundedRectangleBorder(
+                          shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 20),
+                          primary: Color(0xFFFF0094),
+                          onPrimary: Colors.white,
                         ),
                         child: Text("Guardar",
                             style: TextStyle(
